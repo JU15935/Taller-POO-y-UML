@@ -678,3 +678,302 @@ public class Ejercicio9 {
         }
     }
 }
+
+Ejercicio 10: Implementar recursión para calcular Fibonacci
+
+package com.taller.seccion2;
+
+import java.util.Scanner;
+
+public class Ejercicio10 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese un número para calcular su Fibonacci: ");
+        int n = scanner.nextInt();
+        
+        System.out.println("El número Fibonacci de " + n + " es: " + fibonacci(n));
+        
+        scanner.close();
+    }
+    
+    /**
+     * Calcula el número Fibonacci de n usando recursión
+     * @param n posición en la secuencia Fibonacci
+     * @return valor Fibonacci en la posición n
+     */
+    public static int fibonacci(int n) {
+        // Casos base
+        if (n <= 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+        
+        // Caso recursivo
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+Ejercicio 11: Leer una lista de números en ArrayList y filtrar pares
+
+package com.taller.seccion2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Ejercicio11 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        
+        System.out.println("Ingrese números (0 para terminar):");
+        
+        int numero;
+        do {
+            numero = scanner.nextInt();
+            if (numero != 0) {
+                numeros.add(numero);
+            }
+        } while (numero != 0);
+        
+        System.out.println("Números ingresados: " + numeros);
+        
+        // Filtrar números pares
+        ArrayList<Integer> pares = new ArrayList<>();
+        for (Integer num : numeros) {
+            if (num % 2 == 0) {
+                pares.add(num);
+            }
+        }
+        
+        System.out.println("Números pares: " + pares);
+        
+        scanner.close();
+    }
+}
+
+Ejercicio 12: Ordenar la lista con Collections.sort
+
+package com.taller.seccion2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Ejercicio12 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        
+        System.out.println("Ingrese números (0 para terminar):");
+        
+        int numero;
+        do {
+            numero = scanner.nextInt();
+            if (numero != 0) {
+                numeros.add(numero);
+            }
+        } while (numero != 0);
+        
+        System.out.println("Lista original: " + numeros);
+        
+        // Ordenar la lista
+        Collections.sort(numeros);
+        
+        System.out.println("Lista ordenada: " + numeros);
+        
+        scanner.close();
+    }
+}
+
+Ejercicio 13: Eliminar duplicados usando un Set
+
+package com.taller.seccion2;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Ejercicio13 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        
+        System.out.println("Ingrese números (0 para terminar):");
+        
+        int numero;
+        do {
+            numero = scanner.nextInt();
+            if (numero != 0) {
+                numeros.add(numero);
+            }
+        } while (numero != 0);
+        
+        System.out.println("Lista con posibles duplicados: " + numeros);
+        
+        // Eliminar duplicados usando un Set
+        Set<Integer> sinDuplicados = new HashSet<>(numeros);
+        
+        // Convertir de nuevo a ArrayList para mostrar
+        ArrayList<Integer> listaSinDuplicados = new ArrayList<>(sinDuplicados);
+        
+        System.out.println("Lista sin duplicados: " + listaSinDuplicados);
+        
+        scanner.close();
+    }
+}
+
+Ejercicio 14: Convertir array a lista con Arrays.asList
+
+package com.taller.seccion2;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Ejercicio14 {
+    public static void main(String[] args) {
+        // Array original
+        String[] colores = {"Rojo", "Verde", "Azul", "Amarillo", "Morado"};
+        
+        System.out.println("Array original:");
+        for (String color : colores) {
+            System.out.println("- " + color);
+        }
+        
+        // Convertir array a List usando Arrays.asList
+        List<String> listaColores = Arrays.asList(colores);
+        
+        System.out.println("\nLista convertida:");
+        for (String color : listaColores) {
+            System.out.println("- " + color);
+        }
+        
+        // Nota: La lista obtenida está respaldada por el array original,
+        // cualquier cambio en la lista afectará al array y viceversa
+        listaColores.set(0, "Naranja");
+        
+        System.out.println("\nDespués de modificar la lista, el array queda:");
+        for (String color : colores) {
+            System.out.println("- " + color);
+        }
+        
+        // Nota: No se pueden agregar o eliminar elementos de la lista resultante
+        // listaColores.add("Negro"); // Esto lanzaría UnsupportedOperationException
+    }
+} 
+
+Sección 3: Arrays y Colecciones (com.taller.seccion3
+
+package com.taller.seccion3;
+
+import java.util.*;
+
+public class Colecciones {
+    public static void main(String[] args) {
+        // 1. Declara y dimensiona un array de int de tamaño 5
+        int[] numeros = new int[5];
+
+        // 2. Inicializa un array literal de String
+        String[] nombres = {"Ana", "Luis", "Pedro", "Lucía", "Juan"};
+
+        // 3. Recorre array con índice
+        System.out.println("Recorrido con índice:");
+        for (int i = 0; i < nombres.length; i++) {
+            System.out.println("Índice " + i + ": " + nombres[i]);
+        }
+
+        // 4. Recorre array con for-each
+        System.out.println("\nRecorrido con for-each:");
+        for (String nombre : nombres) {
+            System.out.println(nombre);
+        }
+
+        // 5. Crea ArrayList<Integer>, añade, elimina y recorre
+        ArrayList<Integer> listaEnteros = new ArrayList<>();
+        listaEnteros.add(10);
+        listaEnteros.add(20);
+        listaEnteros.add(30);
+        listaEnteros.remove(Integer.valueOf(20)); // Elimina por valor
+        System.out.println("\nArrayList:");
+        for (int num : listaEnteros) {
+            System.out.println(num);
+        }
+
+        // 6. Convierte array a ArrayList y viceversa
+        List<String> listaNombres = Arrays.asList(nombres);
+        String[] nuevoArray = listaNombres.toArray(new String[0]);
+
+        // 7. Usa LinkedList<String> y compara con ArrayList
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("Inicio");
+        linkedList.add("Centro");
+        linkedList.add("Fin");
+        System.out.println("\nLinkedList:");
+        for (String s : linkedList) {
+            System.out.println(s);
+        }
+
+        // 8. Crea HashSet<Double>, añade y muestra tamaño
+        HashSet<Double> conjuntoDecimales = new HashSet<>();
+        conjuntoDecimales.add(2.5);
+        conjuntoDecimales.add(3.14);
+        conjuntoDecimales.add(2.5); // Duplicado, no se agrega
+        System.out.println("\nTamaño del HashSet: " + conjuntoDecimales.size());
+
+        // 9. Crea HashMap<String, Integer>, mapea nombres a edades
+        HashMap<String, Integer> edades = new HashMap<>();
+        edades.put("Ana", 25);
+        edades.put("Luis", 30);
+        edades.put("Pedro", 20);
+
+        // 10. Itera Map.Entry de un HashMap
+        System.out.println("\nEntradas del HashMap:");
+        for (Map.Entry<String, Integer> entry : edades.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // 11. Ordena mapa por valores usando lista auxiliar
+        List<Map.Entry<String, Integer>> listaOrdenada = new ArrayList<>(edades.entrySet());
+        listaOrdenada.sort(Map.Entry.comparingByValue());
+        System.out.println("\nHashMap ordenado por valor:");
+        for (Map.Entry<String, Integer> entry : listaOrdenada) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // 12. Usa Iterator para eliminar elementos durante iteración
+        Iterator<Integer> it = listaEnteros.iterator();
+        while (it.hasNext()) {
+            if (it.next() == 10) {
+                it.remove();
+            }
+        }
+        System.out.println("\nArrayList después de eliminar con Iterator:");
+        System.out.println(listaEnteros);
+
+        // 13. Chequea contención con contains
+        boolean contienePedro = listaNombres.contains("Pedro");
+        System.out.println("\n¿Contiene Pedro? " + contienePedro);
+
+        // 14. Limpia colecciones con clear()
+        conjuntoDecimales.clear();
+        edades.clear();
+        System.out.println("\nTamaño HashSet tras clear(): " + conjuntoDecimales.size());
+        System.out.println("Tamaño HashMap tras clear(): " + edades.size());
+    }
+}
+
+       // 15. Reflexiona en Respuestas.md sobre cuándo usar cada colección.
+
+       ## Diferencias entre List, Set y Map
+
+- **List**: Mantiene el orden de inserción, permite elementos duplicados. Ej: ArrayList, LinkedList.
+- **Set**: No permite duplicados, no garantiza orden (a menos que uses LinkedHashSet o TreeSet).
+- **Map**: Almacena pares clave-valor, no permite claves duplicadas, pero sí valores duplicados.
+
+## ¿Cuándo usar cada colección?
+
+- Usa **List** cuando necesitas acceder a elementos por índice o mantener orden de inserción.
+- Usa **Set** cuando necesitas evitar duplicados y no importa el orden.
+- Usa **Map** cuando cada elemento tiene una clave única (como nombre → edad).
