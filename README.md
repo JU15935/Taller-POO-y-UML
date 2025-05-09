@@ -943,7 +943,7 @@ public class Colecciones {
         }
 
         // 12. Usa Iterator para eliminar elementos durante iteración
-        Iterator<Integer> it = listaEnteros.iterator();
+Iterator<Integer> it = listaEnteros.iterator();
         while (it.hasNext()) {
             if (it.next() == 10) {
                 it.remove();
@@ -953,11 +953,11 @@ public class Colecciones {
         System.out.println(listaEnteros);
 
         // 13. Chequea contención con contains
-        boolean contienePedro = listaNombres.contains("Pedro");
+ boolean contienePedro = listaNombres.contains("Pedro");
         System.out.println("\n¿Contiene Pedro? " + contienePedro);
 
         // 14. Limpia colecciones con clear()
-        conjuntoDecimales.clear();
+  conjuntoDecimales.clear();
         edades.clear();
         System.out.println("\nTamaño HashSet tras clear(): " + conjuntoDecimales.size());
         System.out.println("Tamaño HashMap tras clear(): " + edades.size());
@@ -977,3 +977,54 @@ public class Colecciones {
 - Usa **List** cuando necesitas acceder a elementos por índice o mantener orden de inserción.
 - Usa **Set** cuando necesitas evitar duplicados y no importa el orden.
 - Usa **Map** cuando cada elemento tiene una clave única (como nombre → edad).
+
+    Sección 4: Clases, Objetos e Instancias (com.taller.seccion4)
+
+      // 1. Define clase Persona con atributos private String nombre, int edad.
+
+ public class Persona {
+    private String nombre;
+    private int edad;
+    // ...
+}
+
+    // 2. Crea constructor con parámetros y constructor sin parámetros (sobrecarga).
+
+    // Constructor sin parámetros
+public Persona() {
+    this.nombre = "Desconocido";
+    this.edad = 0;
+    contadorPersonas++;
+}
+
+// Constructor con parámetros
+public Persona(String nombre, int edad, Direccion direccion) {
+    this.nombre = nombre;
+    setEdad(edad); // validación incluida
+    this.direccion = direccion;
+    contadorPersonas++;
+}
+
+    // 3. Genera getters y setters con validación (edad >= 0).
+
+ public int getEdad() {
+    return edad;
+}
+
+public void setEdad(int edad) {
+    if (edad >= 0) {
+        this.edad = edad;
+    } else {
+        System.out.println("Edad inválida.");
+    }
+}
+
+    // 4. Agrega método public void presentarse() que imprima datos.
+
+ public void presentarse() {
+    System.out.println("Hola, soy " + nombre + ", tengo " + edad + " años y vivo en " + direccion);
+}
+
+
+     
+  
