@@ -1025,6 +1025,36 @@ public void setEdad(int edad) {
     System.out.println("Hola, soy " + nombre + ", tengo " + edad + " años y vivo en " + direccion);
 }
 
+    // 5. Crea MainPersona.java y genera 3 objetos con distintos constructores.
+
+ public class MainPersona {
+    public static void main(String[] args) {
+        Direccion dir1 = new Direccion("Calle 1", "Ciudad A");
+        Direccion dir2 = new Direccion("Calle 2", "Ciudad B");
+
+Persona p1 = new Persona(); // sin parámetros
+        p1.setNombre("Carlos");
+        p1.setEdad(28);
+        p1.setDireccion(dir1);
+
+Persona p2 = new Persona("María", 35, dir2); // con parámetros
+
+Persona p3 = new Persona(); // otro con set()
+        p3.setNombre("Carlos");
+        p3.setEdad(22);
+        p3.setDireccion(new Direccion("Calle 3", "Ciudad C"));
+    }
+}
+
+    // 6. Usa this para diferenciar variables.
+    
+public Persona(String nombre, int edad, Direccion direccion) {
+    this.nombre = nombre;
+    this.direccion = direccion;
+    setEdad(edad);
+}
+
+
 
      
   
