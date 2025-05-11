@@ -1054,6 +1054,127 @@ public Persona(String nombre, int edad, Direccion direccion) {
     setEdad(edad);
 }
 
+    // 7.  Declara un atributo static que cuente instancias creadas.
+
+public class Persona {
+    private static int contadorInstancias = 0;
+    private String nombre;
+    private int edad;
+
+ public Persona() {
+        contadorInstancias++;
+    }
+
+  public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+        contadorInstancias++;
+    }
+
+public static int getContadorInstancias() {
+        return contadorInstancias;
+    }
+}
+
+    // 8. Implementa método toString() y usa System.out.println(objeto).
+
+    @Override
+public String toString() {
+    return "Persona{nombre='" + nombre + "', edad=" + edad + "}";
+}
+
+Uso:
+
+Persona p = new Persona("Carlos", 30);
+System.out.println(p);
+
+    // 9. Sobrescribe equals() y hashCode() basados en nombre.
+
+    @Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Persona persona = (Persona) obj;
+    return nombre.equals(persona.nombre);
+}
+
+@Override
+public int hashCode() {
+    return nombre.hashCode();
+}
+
+    // 10. Documenta con JavaDoc la clase Persona.
+
+    /**
+ * Representa una persona con nombre y edad.
+ * @author Tú
+ */
+public class Persona {
+    // código...
+}
+
+       // 11. Crea clase Direccion y agrégala como atributo de Persona.
+
+   public class Direccion {
+    private String calle;
+    private String ciudad;
+
+    // constructor, getters y setters
+}
+
+public class Persona {
+    private Direccion direccion;
+
+    // en constructor: this.direccion = direccion;
+}
+
+    // 12. Sobrecarga método presentarse(String saludo).
+
+ public void presentarse(String saludo) {
+    System.out.println(saludo + ", soy " + nombre + " y tengo " + edad + " años.");
+}
+
+    // 13. Usa final en un método y explica en Respuestas.md.
+
+ public final void metodoFinal() {
+    System.out.println("Este método no puede sobrescribirse.");
+}
+
+    // 14. Implementa clonación con Cloneable.
+
+public class Persona implements Cloneable {
+    @Override
+    public Persona clone() throws CloneNotSupportedException {
+        return (Persona) super.clone();
+    }
+}
+
+    // 15. Reflexión: Diferencias entre == y equals().
+     En Respuestas.md:
+
+  == compara referencias (si apuntan al mismo objeto), mientras que equals() compara contenido lógico si está sobreescrito.
+
+  Sección 5: Encapsulamiento y Paquetes
+
+    // 1. Mueve Persona y Direccion a com.taller.seccion5.
+  (Mover las clases a ese paquete en el IDE Eclipse).
+
+    // 2. Crea paquete util con clase CalculadoraBasica.
+
+    package com.taller.seccion5.util;
+
+public class CalculadoraBasica {
+    public static int sumar(int a, int b) { return a + b; }
+    public static int restar(int a, int b) { return a - b; }
+    public static int multiplicar(int a, int b) { return a * b; }
+    public static double dividir(int a, int b) { return a / (double)b; }
+}
+
+
+
+
+
+
 
 
      
